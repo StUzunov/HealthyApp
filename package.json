@@ -12,6 +12,8 @@
     "react": "16.3.1",
     "react-native": "0.55.4",
     "react-native-auto-height-image": "^1.0.1",
+    "react-native-progress": "^3.5.0",
+    "react-native-progress-bar": "^0.1.2",
     "react-native-vector-icons": "^5.0.0",
     "react-navigation": "^2.12.1",
     "watchman": "^1.0.0"

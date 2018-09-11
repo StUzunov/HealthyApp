@@ -1,0 +1,43 @@
+undefined is not a function (evaluating 'React.createClass')
+<unknown>
+    C:\Users\suzunov\HealthyApp\node_modules\react-native-progress-bar\ProgressBar.js:22:36
+loadModuleImplementation
+    C:\Users\suzunov\HealthyApp\node_modules\react-native\node_modules\metro\src\lib\polyfills\require.js:214:12
+guardedLoadModule
+    C:\Users\suzunov\HealthyApp\node_modules\react-native\node_modules\metro\src\lib\polyfills\require.js:148:36
+_require
+    C:\Users\suzunov\HealthyApp\node_modules\react-native\node_modules\metro\src\lib\polyfills\require.js:132:20
+<unknown>
+    C:\Users\suzunov\HealthyApp\node_modules\react-native-progress-bar\index.js:1:17
+loadModuleImplementation
+    C:\Users\suzunov\HealthyApp\node_modules\react-native\node_modules\metro\src\lib\polyfills\require.js:214:12
+guardedLoadModule
+    C:\Users\suzunov\HealthyApp\node_modules\react-native\node_modules\metro\src\lib\polyfills\require.js:148:36
+_require
+    C:\Users\suzunov\HealthyApp\node_modules\react-native\node_modules\metro\src\lib\polyfills\require.js:132:20
+<unknown>
+    C:\Users\suzunov\HealthyApp\components\Home.js:8
+loadModuleImplementation
+    C:\Users\suzunov\HealthyApp\node_modules\react-native\node_modules\metro\src\lib\polyfills\require.js:214:12
+guardedLoadModule
+    C:\Users\suzunov\HealthyApp\node_modules\react-native\node_modules\metro\src\lib\polyfills\require.js:148:36
+_require
+    C:\Users\suzunov\HealthyApp\node_modules\react-native\node_modules\metro\src\lib\polyfills\require.js:132:20
+<unknown>
+    C:\Users\suzunov\HealthyApp\App.js:7
+loadModuleImplementation
+    C:\Users\suzunov\HealthyApp\node_modules\react-native\node_modules\metro\src\lib\polyfills\require.js:214:12
+guardedLoadModule
+    C:\Users\suzunov\HealthyApp\node_modules\react-native\node_modules\metro\src\lib\polyfills\require.js:148:36
+_require
+    C:\Users\suzunov\HealthyApp\node_modules\react-native\node_modules\metro\src\lib\polyfills\require.js:132:20
+<unknown>
+    C:\Users\suzunov\HealthyApp\index.js:4
+loadModuleImplementation
+    C:\Users\suzunov\HealthyApp\node_modules\react-native\node_modules\metro\src\lib\polyfills\require.js:214:12
+guardedLoadModule
+    C:\Users\suzunov\HealthyApp\node_modules\react-native\node_modules\metro\src\lib\polyfills\require.js:141:45
+_require
+    C:\Users\suzunov\HealthyApp\node_modules\react-native\node_modules\metro\src\lib\polyfills\require.js:132:20
+global code
+

@@ -3,14 +3,21 @@ import { Button, View, Text,KeyboardAvoidingView,TextInput, YellowBox } from 're
 import { createStackNavigator } from 'react-navigation'; // Version can be specified in package.json
 import {  } from 'react-native';
 import Login from './components/Login'
-import Secured from './components/Secured'
+import Home from './components/Home'
+import Trainings from './components/Trainings'
+
+
 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
 const RootStack = createStackNavigator(
   {
     Login: Login,
-    Secured: Secured,
+    Home: Home,
+    Challenge: Challenge,
+    Trainings, Trainings
+
+
   },
   {
     initialRouteName: 'Login',
@@ -18,7 +25,14 @@ const RootStack = createStackNavigator(
 );
 
 export default class App extends React.Component {
-  render() {
-    return <RootStack />;
-  }
+
+    static navigationOptions = {
+        header: {
+            visible: false,
+        }
+    }
+
+    render() {
+        return <RootStack />;
+    }
 }

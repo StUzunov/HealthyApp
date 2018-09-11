@@ -42,22 +42,17 @@ export default class Login extends Component{
                                 secureTextEntry={true}
                         />
                         <Button
-                            //disabled={this.props.isLoggedIn||!this.props.username||!this.props.password}
+                            style={styles.info}
+                            disabled={!this.state.username||!this.state.password}
                             onPress={() => {
                                     /* 1. Navigate to the Details route with params */
-                                    this.props.navigation.navigate('Secured', {
+                                    this.props.navigation.navigate('Home', {
                                       isLoggedIn: true,
                                       username: this.state.username,
                                       password: this.state.password,
                                     });
                                 }}
                             title="Submit"
-                        />
-                        <Button
-                          title="Go to Details"
-                          onPress={() => {
-
-                          }}
                         />
                     </View>
                 </View>
@@ -76,13 +71,14 @@ const styles = StyleSheet.create({
     },
     logoContainer:{
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         flex: 1,
     },
     logo: {
         width: 230,
         //TODO edit this shit
-        height: 80
+        height: 80,
+        marginTop: 20,
     },
     title: {
         color: 'magenta',
@@ -96,15 +92,14 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 0,
-        height: 160,
-        padding: 20
+        height: 200,
+        padding: 20,
         //backgroundColor: "red"
     },
     info: {
-        height: 40,
+        height: 45,
         backgroundColor: "rgba(00,255,00, 0.2)",
         marginBottom: 10,
         borderRadius: 20
-    //    { height: 40, width: "95%", borderColor: 'gray', borderWidth: 2, borderRadius: 20,  marginBottom: 20, fontSize: 18 }
     }
 })
