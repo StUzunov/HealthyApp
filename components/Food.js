@@ -72,44 +72,29 @@ export default class Food extends Component {
                     <Image style={styles.logo}
                         source={require('../images/logo.png')}/>
                 </View>
-
-                <Text style={styles.instructions}>
-                  Calories progress:
-                </Text>
-                <Progress.Bar progress={this.state.calories["progress"]} width={230} />
-                <Text style={styles.instructions}>
-                  Water progress:
-                </Text>
-                <Progress.Bar progress={this.state.water["progress"]} width={230} />
-
+                <View style={styles.instructionsContainer}>
+                    <Text style={styles.instructions}>
+                      Food
+                    </Text>
+                    <Text style={styles.instructions}>
+                      Coming Soon
+                    </Text>
+                </View>
                 <View style={styles.downMenuContainer}>
+                    <TouchableOpacity activeOpacity = { .5 } onPress={() => {
+
+                         this.props.navigation.navigate('Home', {
+                           isLoggedIn: true,
+                           username: this.state.username,
+                           password: this.state.password,
+                         });
+                        }}>
+                        <Image
+                            style={styles.downMenu}
+                            source={require('../images/home.png')}/>
+                    </TouchableOpacity>
 
                     <TouchableOpacity activeOpacity = { .5 } onPress={() => {
-                         /* 1. Navigate to the Details route with params */
-                         this.props.navigation.navigate('Home', {
-                           isLoggedIn: true,
-                           username: this.state.username,
-                           password: this.state.password,
-                         });
-                        }}>
-                        <Image
-                            style={styles.downMenu}
-                            source={require('../images/spread.jpg')}/>
-                    </TouchableOpacity>
-                    <TouchableOpacity activeOpacity = { .5 } onPress={() => {
-                         /* 1. Navigate to the Details route with params */
-                         this.props.navigation.navigate('Home', {
-                           isLoggedIn: true,
-                           username: this.state.username,
-                           password: this.state.password,
-                         });
-                        }}>
-                        <Image
-                            style={styles.downMenu}
-                            source={require('../images/spread.jpg')}/>
-                    </TouchableOpacity>
-                    <TouchableOpacity activeOpacity = { .5 } onPress={() => {
-                         /* 1. Navigate to the Details route with params */
                          this.props.navigation.navigate('Food', {
                            isLoggedIn: true,
                            username: this.state.username,
@@ -117,11 +102,24 @@ export default class Food extends Component {
                          });
                         }}>
                         <Image
-                            style={styles.downMenu}
-                            source={require('../images/spread.jpg')}/>
+                            style={styles.downMenuNow}
+                            source={require('../images/food.png')}/>
                     </TouchableOpacity>
+
                     <TouchableOpacity activeOpacity = { .5 } onPress={() => {
-                         /* 1. Navigate to the Details route with params */
+                                             /* 1. Navigate to the Details route with params */
+                                             this.props.navigation.navigate('Trainings', {
+                                               isLoggedIn: true,
+                                               username: this.state.username,
+                                               password: this.state.password,
+                                             });
+                                            }}>
+                        <Image
+                            style={styles.downMenu}
+                            source={require('../images/dumbbell.png')}/>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity activeOpacity = { .5 } onPress={() => {
                          this.props.navigation.navigate('Friends', {
                            isLoggedIn: true,
                            username: this.state.username,
@@ -130,8 +128,9 @@ export default class Food extends Component {
                         }}>
                         <Image
                             style={styles.downMenu}
-                            source={require('../images/spread.jpg')}/>
+                            source={require('../images/challenge.png')}/>
                     </TouchableOpacity>
+
                     <TouchableOpacity activeOpacity = { .5 } onPress={() => {
                          /* 1. Navigate to the Details route with params */
                          this.props.navigation.navigate('Challenge', {
@@ -142,19 +141,7 @@ export default class Food extends Component {
                         }}>
                         <Image
                             style={styles.downMenu}
-                            source={require('../images/spread.jpg')}/>
-                    </TouchableOpacity>
-                    <TouchableOpacity activeOpacity = { .5 } onPress={() => {
-                         /* 1. Navigate to the Details route with params */
-                         this.props.navigation.navigate('Trainings', {
-                           isLoggedIn: true,
-                           username: this.state.username,
-                           password: this.state.password,
-                         });
-                        }}>
-                        <Image
-                            style={styles.downMenu}
-                            source={require('../images/spread.jpg')}/>
+                            source={require('../images/friends.png')}/>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -176,10 +163,13 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         margin: 10,
     },
+    instructionsContainer: {
+        marginBottom: 80,
+        flex: 0.3,
+    },
     instructions: {
         textAlign: 'center',
         color: '#333333',
-        marginBottom: 5,
     },
     logoContainer:{
         alignItems: 'flex-start',
@@ -194,17 +184,27 @@ const styles = StyleSheet.create({
     },
     downMenuContainer:{
         alignItems: 'flex-end',
-        justifyContent: 'flex-end',
-        flex: 0.4,
+        flex: 0.1,
         flexDirection: "row",
-        //backgroundColor: "red"
+        width: "100%",
+        justifyContent: 'space-between',
+        backgroundColor: "gray",
     },
     downMenu: {
+        marginLeft: 5,
+        marginRight: 5,
+        aspectRatio: 1,
+        //TODO edit this shit
+        flex: 1,
+        justifyContent: 'flex-start',
+        opacity: 0.5
+    },
+    downMenuNow: {
         marginLeft: 2,
         marginRight: 2,
-        width: 70,
+        aspectRatio: 1,
         //TODO edit this shit
-        height: 70,
+        flex: 1,
         justifyContent: 'flex-start',
     },
 });

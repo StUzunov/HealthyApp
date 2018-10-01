@@ -6,12 +6,17 @@ import { View } from 'react-native';
 import { Button, StyleSheet, Image,TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-vector-icons/FontAwesome';
 import * as Progress from 'react-native-progress';
+import PercentageCircle from 'react-native-percentage-circle';
 
 import { createStackNavigator } from 'react-navigation'; // Version can be specified in package.json
 
 //YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
 export default class Home extends Component {
+
+    navigationOptions:  {
+        headerLeft: null
+    }
 
     constructor(props) {
         super(props);
@@ -72,44 +77,31 @@ export default class Home extends Component {
                     <Image style={styles.logo}
                         source={require('../images/logo.png')}/>
                 </View>
+                <View style={styles.instructionsContainer}>
 
-                <Text style={styles.instructions}>
-                  Calories progress:
-                </Text>
-                <Progress.Bar progress={this.state.calories["progress"]} width={230} />
-                <Text style={styles.instructions}>
-                  Water progress:
-                </Text>
-                <Progress.Bar progress={this.state.water["progress"]} width={230} />
+                    <Text style={styles.instructions}>
+                      Home
+                    </Text>
+                    <Text style={styles.instructions}>
+                      Calories progress:
+                    </Text>
 
+                    <Progress.Circle progress={this.state.calories["progress"]} size={100} thickness={5} showsText={true}
+                        formatText={progress => `${Math.round(this.state.calories["progress"] * 100)}%`} />
+
+
+                    <Text style={styles.instructions}>
+                      Water progress:
+                    </Text>
+                    <Progress.Bar progress={this.state.water["progress"]} width={230} />
+
+
+                     <Text >daadas</Text>
+
+                </View>
                 <View style={styles.downMenuContainer}>
 
                     <TouchableOpacity activeOpacity = { .5 } onPress={() => {
-                         /* 1. Navigate to the Details route with params */
-                         this.props.navigation.navigate('Home', {
-                           isLoggedIn: true,
-                           username: this.state.username,
-                           password: this.state.password,
-                         });
-                        }}>
-                        <Image
-                            style={styles.downMenu}
-                            source={require('../images/spread.jpg')}/>
-                    </TouchableOpacity>
-                    <TouchableOpacity activeOpacity = { .5 } onPress={() => {
-                         /* 1. Navigate to the Details route with params */
-                         this.props.navigation.navigate('Home', {
-                           isLoggedIn: true,
-                           username: this.state.username,
-                           password: this.state.password,
-                         });
-                        }}>
-                        <Image
-                            style={styles.downMenu}
-                            source={require('../images/spread.jpg')}/>
-                    </TouchableOpacity>
-                    <TouchableOpacity activeOpacity = { .5 } onPress={() => {
-                         /* 1. Navigate to the Details route with params */
                          this.props.navigation.navigate('Food', {
                            isLoggedIn: true,
                            username: this.state.username,
@@ -118,8 +110,47 @@ export default class Home extends Component {
                         }}>
                         <Image
                             style={styles.downMenu}
-                            source={require('../images/spread.jpg')}/>
+                            source={require('../images/food.png')}/>
                     </TouchableOpacity>
+
+                    <TouchableOpacity activeOpacity = { .5 } onPress={() => {
+                                             /* 1. Navigate to the Details route with params */
+                                             this.props.navigation.navigate('Trainings', {
+                                               isLoggedIn: true,
+                                               username: this.state.username,
+                                               password: this.state.password,
+                                             });
+                                            }}>
+                        <Image
+                            style={styles.downMenu}
+                            source={require('../images/dumbbell.png')}/>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity activeOpacity = { .5 } onPress={() => {
+
+                                             this.props.navigation.navigate('Home', {
+                                               isLoggedIn: true,
+                                               username: this.state.username,
+                                               password: this.state.password,
+                                             });
+                                            }}>
+                                            <Image
+                                                style={styles.downMenuNow}
+                                                source={require('../images/home.png')}/>
+                                        </TouchableOpacity>
+
+                    <TouchableOpacity activeOpacity = { .5 } onPress={() => {
+                         this.props.navigation.navigate('Challenge', {
+                           isLoggedIn: true,
+                           username: this.state.username,
+                           password: this.state.password,
+                         });
+                        }}>
+                        <Image
+                            style={styles.downMenu}
+                            source={require('../images/challenge.png')}/>
+                    </TouchableOpacity>
+
                     <TouchableOpacity activeOpacity = { .5 } onPress={() => {
                          /* 1. Navigate to the Details route with params */
                          this.props.navigation.navigate('Friends', {
@@ -130,31 +161,7 @@ export default class Home extends Component {
                         }}>
                         <Image
                             style={styles.downMenu}
-                            source={require('../images/spread.jpg')}/>
-                    </TouchableOpacity>
-                    <TouchableOpacity activeOpacity = { .5 } onPress={() => {
-                         /* 1. Navigate to the Details route with params */
-                         this.props.navigation.navigate('Challenge', {
-                           isLoggedIn: true,
-                           username: this.state.username,
-                           password: this.state.password,
-                         });
-                        }}>
-                        <Image
-                            style={styles.downMenu}
-                            source={require('../images/spread.jpg')}/>
-                    </TouchableOpacity>
-                    <TouchableOpacity activeOpacity = { .5 } onPress={() => {
-                         /* 1. Navigate to the Details route with params */
-                         this.props.navigation.navigate('Trainings', {
-                           isLoggedIn: true,
-                           username: this.state.username,
-                           password: this.state.password,
-                         });
-                        }}>
-                        <Image
-                            style={styles.downMenu}
-                            source={require('../images/spread.jpg')}/>
+                            source={require('../images/friends.png')}/>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -176,10 +183,13 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         margin: 10,
     },
+    instructionsContainer: {
+        marginBottom: 80,
+        flex: 0.3,
+    },
     instructions: {
         textAlign: 'center',
         color: '#333333',
-        marginBottom: 5,
     },
     logoContainer:{
         alignItems: 'flex-start',
@@ -194,17 +204,27 @@ const styles = StyleSheet.create({
     },
     downMenuContainer:{
         alignItems: 'flex-end',
-        justifyContent: 'flex-end',
-        flex: 0.4,
+        flex: 0.1,
         flexDirection: "row",
-        //backgroundColor: "red"
+        width: "100%",
+        justifyContent: 'space-between',
+        //backgroundColor: "rgba(00,255,00, 0.2)",
     },
     downMenu: {
+        marginLeft: 5,
+        marginRight: 5,
+        aspectRatio: 1,
+        //TODO edit this shit
+        flex: 1,
+        justifyContent: 'flex-start',
+        opacity: 0.5
+    },
+    downMenuNow: {
         marginLeft: 2,
         marginRight: 2,
-        width: 70,
+        aspectRatio: 1,
         //TODO edit this shit
-        height: 70,
+        flex: 1,
         justifyContent: 'flex-start',
     },
 });

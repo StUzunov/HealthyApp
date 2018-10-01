@@ -74,18 +74,16 @@ export default class Challenge extends Component {
                 </View>
 
                 <Text style={styles.instructions}>
-                  Calories progress:
+                  Challenge
                 </Text>
-                <Progress.Bar progress={this.state.calories["progress"]} width={230} />
                 <Text style={styles.instructions}>
-                  Water progress:
+                  Coming Soon
                 </Text>
-                <Progress.Bar progress={this.state.water["progress"]} width={230} />
 
                 <View style={styles.downMenuContainer}>
 
                     <TouchableOpacity activeOpacity = { .5 } onPress={() => {
-                         /* 1. Navigate to the Details route with params */
+
                          this.props.navigation.navigate('Home', {
                            isLoggedIn: true,
                            username: this.state.username,
@@ -94,22 +92,10 @@ export default class Challenge extends Component {
                         }}>
                         <Image
                             style={styles.downMenu}
-                            source={require('../images/spread.jpg')}/>
+                            source={require('../images/home.png')}/>
                     </TouchableOpacity>
+
                     <TouchableOpacity activeOpacity = { .5 } onPress={() => {
-                         /* 1. Navigate to the Details route with params */
-                         this.props.navigation.navigate('Home', {
-                           isLoggedIn: true,
-                           username: this.state.username,
-                           password: this.state.password,
-                         });
-                        }}>
-                        <Image
-                            style={styles.downMenu}
-                            source={require('../images/spread.jpg')}/>
-                    </TouchableOpacity>
-                    <TouchableOpacity activeOpacity = { .5 } onPress={() => {
-                         /* 1. Navigate to the Details route with params */
                          this.props.navigation.navigate('Food', {
                            isLoggedIn: true,
                            username: this.state.username,
@@ -118,8 +104,34 @@ export default class Challenge extends Component {
                         }}>
                         <Image
                             style={styles.downMenu}
-                            source={require('../images/spread.jpg')}/>
+                            source={require('../images/food.png')}/>
                     </TouchableOpacity>
+
+                    <TouchableOpacity activeOpacity = { .5 } onPress={() => {
+                                             /* 1. Navigate to the Details route with params */
+                                             this.props.navigation.navigate('Trainings', {
+                                               isLoggedIn: true,
+                                               username: this.state.username,
+                                               password: this.state.password,
+                                             });
+                                            }}>
+                        <Image
+                            style={styles.downMenu}
+                            source={require('../images/dumbbell.png')}/>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity activeOpacity = { .5 } onPress={() => {
+                         this.props.navigation.navigate('Challenge', {
+                           isLoggedIn: true,
+                           username: this.state.username,
+                           password: this.state.password,
+                         });
+                        }}>
+                        <Image
+                            style={styles.downMenuNow}
+                            source={require('../images/challenge.png')}/>
+                    </TouchableOpacity>
+
                     <TouchableOpacity activeOpacity = { .5 } onPress={() => {
                          /* 1. Navigate to the Details route with params */
                          this.props.navigation.navigate('Friends', {
@@ -130,31 +142,7 @@ export default class Challenge extends Component {
                         }}>
                         <Image
                             style={styles.downMenu}
-                            source={require('../images/spread.jpg')}/>
-                    </TouchableOpacity>
-                    <TouchableOpacity activeOpacity = { .5 } onPress={() => {
-                         /* 1. Navigate to the Details route with params */
-                         this.props.navigation.navigate('Challenge', {
-                           isLoggedIn: true,
-                           username: this.state.username,
-                           password: this.state.password,
-                         });
-                        }}>
-                        <Image
-                            style={styles.downMenu}
-                            source={require('../images/spread.jpg')}/>
-                    </TouchableOpacity>
-                    <TouchableOpacity activeOpacity = { .5 } onPress={() => {
-                         /* 1. Navigate to the Details route with params */
-                         this.props.navigation.navigate('Trainings', {
-                           isLoggedIn: true,
-                           username: this.state.username,
-                           password: this.state.password,
-                         });
-                        }}>
-                        <Image
-                            style={styles.downMenu}
-                            source={require('../images/spread.jpg')}/>
+                            source={require('../images/friends.png')}/>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -207,4 +195,21 @@ const styles = StyleSheet.create({
         height: 70,
         justifyContent: 'flex-start',
     },
+    downMenu: {
+            marginLeft: 2,
+            marginRight: 2,
+            width: 70,
+            //TODO edit this shit
+            height: 70,
+            justifyContent: 'flex-start',
+            opacity: 0.5
+        },
+        downMenuNow: {
+            marginLeft: 2,
+            marginRight: 2,
+            width: 70,
+            //TODO edit this shit
+            height: 70,
+            justifyContent: 'flex-start',
+        },
 });

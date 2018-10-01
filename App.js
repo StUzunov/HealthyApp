@@ -4,7 +4,11 @@ import { createStackNavigator } from 'react-navigation'; // Version can be speci
 import {  } from 'react-native';
 import Login from './components/Login'
 import Home from './components/Home'
+import Food from './components/Food'
 import Trainings from './components/Trainings'
+import Challenge from './components/Challenge'
+import Friends from './components/Friends'
+
 
 
 
@@ -12,11 +16,42 @@ YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTIm
 
 const RootStack = createStackNavigator(
   {
-    Login: Login,
-    Home: Home,
-    Challenge: Challenge,
-    Trainings, Trainings
-
+    Login: {
+       screen: Login,
+       navigationOptions: {
+         header: null
+       },
+     },
+    Home: {
+         screen: Home,
+         navigationOptions: {
+            header: null
+         },
+    },
+    Food: {
+        screen: Food,
+        navigationOptions: {
+          header: null
+        },
+    },
+    Trainings: {
+        screen: Trainings,
+        navigationOptions: {
+           header: null
+        },
+    },
+    Challenge: {
+        screen: Challenge,
+        navigationOptions: {
+           header: null
+        },
+    },
+    Friends: {
+        screen: Friends,
+        navigationOptions: {
+         header: null
+        },
+    },
 
   },
   {
@@ -25,14 +60,8 @@ const RootStack = createStackNavigator(
 );
 
 export default class App extends React.Component {
-
-    static navigationOptions = {
-        header: {
-            visible: false,
-        }
-    }
-
     render() {
         return <RootStack />;
     }
 }
+
